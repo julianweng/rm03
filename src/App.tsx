@@ -197,7 +197,8 @@ const WeatherApp = () => {
     let newIndex = direction === "right" ? currentIndex - 1 : currentIndex + 1;
     if (newIndex < 0) newIndex = views.length - 1;
     else if (newIndex >= views.length) newIndex = 0;
-    return views[newIndex];
+    // Set first character to uppercase
+    return views[newIndex].charAt(0).toUpperCase() + views[newIndex].slice(1);
   };
 
   const gradientClass =
@@ -267,7 +268,7 @@ const WeatherApp = () => {
             ←
           </button>
         </div>
-        <div className="text-6xl font-bold flex items-baseline">
+        <div className="text-7xl font-bold flex items-baseline">
           {getCurrentData().data[0]}
           <span className="text-2xl ml-1">
             {view === "temperature"
